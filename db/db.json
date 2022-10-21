@@ -1,0 +1,32 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "firstName": "Todor",
+            "lastName": "Ivanov",
+            "email": "todor@gmai.com",
+            "password": "123",
+            "address": "Plovdiv FMI",
+            "photo": "https://picsum.photos/200/300?random=1"
+        },
+        {
+            "id": 2,
+            "firstName": "Ivan",
+            "lastName": "Petrov",
+            "email": "ivan@gmai.com",
+            "password": "123",
+            "address": "Kichuka FTW",
+            "photo": "https://picsum.photos/200/300?random=2"
+        },
+        {
+            "firstName": "Test",
+            "lastName": "Testov",
+            "email": "test@mail.com",
+            "address": "Testov adr",
+            "password": "123",
+            "photo": "lafjasdkl",
+            "id": 3
+        }
+    ],
+    "tasks": []
+}
