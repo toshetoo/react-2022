@@ -1,32 +1,63 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "firstName": "Todor",
-            "lastName": "Ivanov",
-            "email": "todor@gmai.com",
-            "password": "123",
-            "address": "Plovdiv FMI",
-            "photo": "https://picsum.photos/200/300?random=1"
-        },
-        {
-            "id": 2,
-            "firstName": "Ivan",
-            "lastName": "Petrov",
-            "email": "ivan@gmai.com",
-            "password": "123",
-            "address": "Kichuka FTW",
-            "photo": "https://picsum.photos/200/300?random=2"
-        },
-        {
-            "firstName": "Test",
-            "lastName": "Testov",
-            "email": "test@mail.com",
-            "address": "Testov adr",
-            "password": "123",
-            "photo": "lafjasdkl",
-            "id": 3
-        }
-    ],
-    "tasks": []
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Todor",
+      "lastName": "Ivanov",
+      "email": "todor@gmai.com",
+      "password": "123",
+      "address": "Plovdiv FMI",
+      "photo": "https://picsum.photos/200/300?random=1",
+      "isAdmin": "true"
+    },
+    {
+      "id": 2,
+      "firstName": "Petar",
+      "lastName": "Petrov",
+      "email": "ivan@gmai.com",
+      "password": "123",
+      "address": "Kichuka FTW",
+      "photo": "https://picsum.photos/200/300?random=2",
+      "isAdmin": "true"
+    },
+    {
+      "firstName": "New Test",
+      "lastName": "Test",
+      "email": "todor@email.com",
+      "password": "123",
+      "photo": "https://picsum.photos/200/300?random=0.18342245319313655",
+      "id": 4,
+      "isAdmin": "false"
+    },
+    {
+      "firstName": "Register 1",
+      "lastName": "Regitester 2",
+      "address": "",
+      "email": "todfsdfor@email.com",
+      "password": "123",
+      "photo": "https://picsum.photos/200/300?random=0.9631649546659729",
+      "id": 5,
+      "isAdmin": "false"
+    }
+  ],
+  "tasks": [
+    {
+      "title": "Test title",
+      "description": "Test description",
+      "status": "Done",
+      "createdDate": "2022-10-28T08:12:27.338Z",
+      "authorId": 1,
+      "authorName": "Todor Ivanov",
+      "id": 2
+    },
+    {
+      "title": "fafasd",
+      "description": "afasd",
+      "status": "Done",
+      "createdDate": "10/28/2022, 11:59:49 AM",
+      "authorId": 1,
+      "authorName": "Todor Ivanov",
+      "id": 3
+    }
+  ]
 }
