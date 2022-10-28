@@ -1,9 +1,19 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { logout } from '../../utils/services/auth-http-utils';
 
 export function Header() {
+
+    const navigate = useNavigate();
+
+    const onLogout = () => {
+        logout().then(() => {
+            navigate('/login');
+        });
+    }
+
     return (
         <div className="header">
             <Navbar bg="light" expand="lg">
@@ -14,7 +24,10 @@ export function Header() {
                         <Nav className="me-auto">
                             <Link className="nav-link" to="/users">Users</Link>
                             <Link className="nav-link" to="/users/create">Create user</Link>
+                            <Link className="nav-link" to="/tasks">Tasks</Link>
+                            <Link className="nav-link" to="/tasks/create">Create task</Link>
                         </Nav>
+                        <Link className="nav-link" onClick={onLogout} > Logout </Link>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

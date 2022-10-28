@@ -1,0 +1,16 @@
+.action-buttons {
+    padding: 10px;
+
+    button {
+        margin: 5px;        
+        border-radius: 5px;
+
+        &.edit {
+            background-color: gold;
+        }
+
+        &.delete {
+            background-color: red;
+        }
+    }
+}

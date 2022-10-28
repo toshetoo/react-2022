@@ -1,7 +1,13 @@
 import { getUsers } from "./user-http-utils";
+import { parseBool } from "./bool-utils";
 
 export function getLoggedUser() {
-    return JSON.parse(localStorage.getItem('loggedUser'));
+    const user = JSON.parse(localStorage.getItem('loggedUser'));
+    if (user)
+        user.isAdmin = parseBool(user.isAdmin);
+
+    return user;
+
 }
 
 export async function login(loginCreds) {
@@ -19,4 +25,11 @@ export async function login(loginCreds) {
     localStorage.setItem('loggedUser', JSON.stringify(foundUser));
     return foundUser;
 
+}
+
+export function logout() {
+    return new Promise((resolve) => {
+        localStorage.removeItem('loggedUser');
+        resolve();
+    });
 }

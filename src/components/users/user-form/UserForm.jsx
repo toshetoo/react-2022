@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router';
 import { useEffect } from 'react';
 
 import './UserForm.scss';
+import { parseBool } from '../../../utils/services/bool-utils';
 
 export function UserForm() {
     const emptyUser = {
@@ -14,7 +15,8 @@ export function UserForm() {
         address: '',
         email: '',
         password: '',
-        photo: ''
+        photo: '',
+        isAdmin: false
     };
     const [currentUser, setCurrentUser] = useState(emptyUser);
     const navigate = useNavigate();
@@ -31,11 +33,25 @@ export function UserForm() {
         }
     }, [params.id]);
 
-    const onFormControlChange = (event) => {
+    const onCheckboxChange = (event) => {
         setCurrentUser((prevState) => {
             return {
                 ...prevState,
-                [event.target.name]: event.target.value
+                isAdmin: event.target.checked.toString()
+            }
+        })
+    }
+
+    const onFormControlChange = (event) => {
+        const target = event.target;
+        let prop = 'value';
+        if (target.name === 'isAdmin')
+            prop = 'checked';
+
+        setCurrentUser((prevState) => {
+            return {
+                ...prevState,
+                [event.target.name]: event.target[prop]
             }
         });
     }
@@ -74,6 +90,10 @@ export function UserForm() {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Photo</Form.Label>
                     <Form.Control type="text" name="photo" placeholder="Enter photo" onChange={onFormControlChange} value={currentUser.photo} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Is Admin</Form.Label>
+                    <Form.Check name="isAdmin" onChange={onCheckboxChange} checked={parseBool(currentUser.isAdmin)} />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit

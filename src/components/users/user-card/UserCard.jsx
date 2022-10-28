@@ -15,16 +15,24 @@ export function UserCard({ user, onDelete }) {
         navigate(`/users/edit/${user.id}`);
     }
 
+    // if admin => do all
+    // if user => 
+    // ==== > yourseld => render
+    // ==== > not yourself => render nothing
+
     const renderActionButtons = () => {
         const loggedUser = getLoggedUser();
+
+        if (loggedUser.isAdmin && loggedUser.id !== user.id) {
+            return <>
+                <Card.Link onClick={navigateToUpdate} >Update</Card.Link>
+                <Card.Link onClick={onDeleteClicked}>Delete</Card.Link>
+            </>
+        }
+
         if (loggedUser.id === user.id) {
             return <Card.Link onClick={navigateToUpdate} >Update</Card.Link>;
         }
-
-        return <>
-            <Card.Link onClick={navigateToUpdate} >Update</Card.Link>
-            <Card.Link onClick={onDeleteClicked}>Delete</Card.Link>
-        </>
     }
 
     return (
