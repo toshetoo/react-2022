@@ -14,7 +14,7 @@
       "id": 2,
       "firstName": "Petar",
       "lastName": "Petrov",
-      "email": "ivan@gmai.com",
+      "email": "todor@gmai.com",
       "password": "123",
       "address": "Kichuka FTW",
       "photo": "https://picsum.photos/200/300?random=2",
@@ -30,7 +30,7 @@
       "isAdmin": "false"
     },
     {
-      "firstName": "Register 1",
+      "firstName": "Register 143242",
       "lastName": "Regitester 2",
       "address": "",
       "email": "todfsdfor@email.com",
@@ -38,6 +38,36 @@
       "photo": "https://picsum.photos/200/300?random=0.9631649546659729",
       "id": 5,
       "isAdmin": "false"
+    },
+    {
+      "firstName": "asdfsd",
+      "lastName": "fsdafsda",
+      "address": "asdfsda",
+      "email": "todor@gmai.com",
+      "password": "123",
+      "photo": "https://picsum.photos/200/300?random=0.30917956560369886",
+      "isAdmin": false,
+      "id": 6
+    },
+    {
+      "firstName": "Test",
+      "lastName": "Testov",
+      "address": "fsdfasdf",
+      "email": "ttttt@gmail.com",
+      "password": "123",
+      "photo": "https://picsum.photos/200/300?random=0.9752413932215427",
+      "isAdmin": false,
+      "id": 7
+    },
+    {
+      "firstName": "Edited",
+      "lastName": "asfsdaf",
+      "address": "gsdfgsdfg",
+      "email": "ttttrfdsft@gmail.com",
+      "password": "123",
+      "photo": "https://picsum.photos/200/300?random=0.6985198127810821",
+      "isAdmin": "false",
+      "id": 8
     }
   ],
   "tasks": [
@@ -58,6 +88,42 @@
       "authorId": 1,
       "authorName": "Todor Ivanov",
       "id": 3
+    },
+    {
+      "title": "gsdfgfsd",
+      "description": "gsdfgsdf",
+      "status": "Done",
+      "createdDate": "11/4/2022, 9:35:47 AM",
+      "authorId": 4,
+      "authorName": "New Test Test",
+      "id": 4
+    },
+    {
+      "title": "afsdfsd",
+      "description": "asdfasdf",
+      "status": "Done",
+      "createdDate": "11/4/2022, 11:18:57 AM",
+      "authorId": 4,
+      "authorName": "New Test Test",
+      "id": 5
+    },
+    {
+      "title": "sdafsd",
+      "description": "asdfasdfasdf",
+      "status": "Done",
+      "createdDate": "11/4/2022, 11:19:03 AM",
+      "authorId": 4,
+      "authorName": "New Test Test",
+      "id": 6
+    },
+    {
+      "title": "asdfasdf",
+      "description": "adsfasdf",
+      "status": "Done",
+      "createdDate": "11/4/2022, 11:19:07 AM",
+      "authorId": 4,
+      "authorName": "New Test Test",
+      "id": 7
     }
   ]
 }

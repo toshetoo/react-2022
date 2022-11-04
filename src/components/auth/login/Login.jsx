@@ -4,6 +4,7 @@ import { login } from "../../../utils/services/auth-http-utils";
 import { useNavigate } from "react-router";
 
 import './Login.scss';
+import { Link } from "react-router-dom";
 
 export function Login() {
     const [loginCreds, setLoginCreds] = useState({});
@@ -52,6 +53,10 @@ export function Login() {
                     <Form.Control type="password" name="password" onChange={onFormControlChange} required />
                 </Form.Group>
                 <Button type="submit">Login</Button>
+
+                <div>
+                    <Link to="/register">Register an account</Link>
+                </div>
             </Form>
         </div>
     );

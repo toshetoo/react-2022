@@ -4,7 +4,14 @@ import { getLoggedUser } from "./auth-http-utils";
 const apiUrl = 'http://localhost:3005/tasks';
 
 export function getTasks() {
-    return axios.get(apiUrl);
+    const loggedUser = getLoggedUser();
+
+    if (loggedUser.isAdmin)
+        return axios.get(apiUrl);
+
+    const url = `${apiUrl}?authorId=${loggedUser.id}`;
+    // http://localhost:3005/tasks?authorId=4
+    return axios.get(url);
 }
 
 export function getTaskById(id) {

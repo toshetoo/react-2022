@@ -2,11 +2,12 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { saveUser, getUserById } from '../../../utils/services/user-http-utils';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams, Navigate } from 'react-router';
 import { useEffect } from 'react';
 
 import './UserForm.scss';
 import { parseBool } from '../../../utils/services/bool-utils';
+import { getLoggedUser } from '../../../utils/services/auth-http-utils';
 
 export function UserForm() {
     const emptyUser = {
@@ -19,6 +20,7 @@ export function UserForm() {
         isAdmin: false
     };
     const [currentUser, setCurrentUser] = useState(emptyUser);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const params = useParams();
 
@@ -61,12 +63,35 @@ export function UserForm() {
         console.log(currentUser);
         saveUser(currentUser).then(() => {
             navigate('/users');
+        }).catch(error => {
+            setError(error.message);
         });
+    }
+
+    const renderIsAdminControl = () => {
+        const loggedUser = getLoggedUser();
+
+        if (!loggedUser || !loggedUser.isAdmin || loggedUser.id === currentUser.id)
+            return '';
+
+        return <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Is Admin</Form.Label>
+            <Form.Check name="isAdmin" onChange={onCheckboxChange} checked={parseBool(currentUser.isAdmin)} />
+        </Form.Group>
+    }
+
+    const navigateIfNotAdmin = () => {
+        const loggedUser = getLoggedUser();
+
+        if (loggedUser && !loggedUser.isAdmin)
+            return <Navigate to='/users' />
     }
 
     return (
         <div className="user-form-wrapper">
+            {navigateIfNotAdmin()}
             <Form className="user-form" onSubmit={onSubmit}>
+                <span className="text-danger">{error}</span>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>First Name</Form.Label>
                     <Form.Control type="text" name="firstName" placeholder="Enter first name" onChange={onFormControlChange} value={currentUser.firstName} required />
@@ -91,10 +116,7 @@ export function UserForm() {
                     <Form.Label>Photo</Form.Label>
                     <Form.Control type="text" name="photo" placeholder="Enter photo" onChange={onFormControlChange} value={currentUser.photo} />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Is Admin</Form.Label>
-                    <Form.Check name="isAdmin" onChange={onCheckboxChange} checked={parseBool(currentUser.isAdmin)} />
-                </Form.Group>
+                {renderIsAdminControl()}
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>

@@ -9,6 +9,7 @@ import { AuthenticatedRoute } from './utils/guards/AuthenticatedRoute';
 import { Register } from './components/auth/register/Register';
 import { TaskForm } from './components/tasks/task-form/TaskForm';
 import { TasksList } from './components/tasks/tasks-list/TasksList';
+import { UserProfile } from './components/users/user-profile/UserProfile';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="users" element={<UsersList />} />
           <Route path="users/create" element={<UserForm />} />
           <Route path="users/edit/:id" element={<UserForm />} />
+          <Route path="profile/:id" element={<UserProfile />} />
 
           <Route path="tasks" element={<TasksList />} />
           <Route path="tasks/create" element={<TaskForm />} />

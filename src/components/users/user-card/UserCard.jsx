@@ -2,6 +2,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { useNavigate } from 'react-router';
 import { getLoggedUser } from '../../../utils/services/auth-http-utils';
+import { Link } from 'react-router-dom';
 
 export function UserCard({ user, onDelete }) {
 
@@ -39,7 +40,11 @@ export function UserCard({ user, onDelete }) {
         <Card style={{ width: '18rem', margin: '20px' }}>
             <Card.Img variant="top" src={user.photo} />
             <Card.Body>
-                <Card.Title>{user.firstName} {user.lastName}</Card.Title>
+                <Card.Title>
+                    <Link to={`/profile/${user.id}`}>
+                        {user.firstName} {user.lastName}
+                    </Link>
+                </Card.Title>
             </Card.Body>
             <ListGroup className="list-group-flush">
                 <ListGroup.Item>Address: {user.address}</ListGroup.Item>

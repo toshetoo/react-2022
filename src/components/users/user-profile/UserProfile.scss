@@ -1,0 +1,34 @@
+.user-profile {
+    display: flex;
+    height: 90vh;
+
+    .user-info {
+        border-right: 1px solid black;
+    }
+
+    .user-tasks {
+        width: 70%;
+
+        .user-task {
+            width: 100%;
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+
+            &.Done, button.Done {
+                border: 3px solid seagreen;
+            }
+
+            &.InProgress, button.InProgress {
+                border: 3px solid steelblue;
+            }
+
+            &.Pending {
+                border: 3px solid tomato;
+            }
+        }
+    }
+}
